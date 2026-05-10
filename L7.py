@@ -27,19 +27,23 @@ def validate_input(a: int, b: int) -> Optional[DivisionError]:
     """
     Validate Value Before Division
     
+    Pre-Condition:
+    - Variable validated through condition
+    
+    Post-Condition:
+    - Return Denominator must not be zero logs
+    
     Args:
         a: Numerator
         b: Denominator
 
     Returns:
         DivisionError if invalid, None if valid
-        
-    Checks:
-        - Denominator must not be zero
     """
     
-    '''Denominator Must Not Be Zero'''
+    '''Pre-Condition'''
     if b == 0:
+        '''Post-Condition'''
         logger.error("Division By Zero Attempted")
         return DivisionError.DIVIDE_BY_ZERO
     
@@ -92,3 +96,7 @@ if __name__ == '__main__':
     y = int(y_input)
     
     safe_divide(x, y)
+    
+"""
+itentionally complex 😊
+"""
