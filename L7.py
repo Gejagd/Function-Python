@@ -4,22 +4,41 @@ Computer Science class, Programing in Python
 Program : simple division operation
 """
 
+"""Library"""
 import logging
 import math
 from enum import Enum
 from typing import Tuple, Optional
 
+"""Configure Logging"""
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
 
+"""Error Code for Division Operations"""
 class DivisionError(Enum):
     SUCCESS = 0
     DIVIDE_BY_ZERO = 1
 
+
 def validate_input(a: int, b: int) -> Optional[DivisionError]:
+    """
+    Validate Value Before Division
+    
+    Args:
+        a: Numerator
+        b: Denominator
+
+    Returns:
+        DivisionError if invalid, None if valid
+        
+    Checks:
+        - Denominator must not be zero
+    """
+    
+    '''Denominator Must Not Be Zero'''
     if b == 0:
         logger.error("Division By Zero Attempted")
         return DivisionError.DIVIDE_BY_ZERO
