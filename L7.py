@@ -57,7 +57,7 @@ def safe_divide(a: int, b: int) -> Tuple[Optional[int], DivisionError]:
     - Input validation
     
     Post-Conditions:
-]    - Return of successful division result
+    - Return of successful division result
     
     Args:
         a: Numerator (dividend)
