@@ -46,18 +46,40 @@ def validate_input(a: int, b: int) -> Optional[DivisionError]:
     return None
 
 def safe_divide(a: int, b: int) -> Tuple[Optional[int], DivisionError]:
+    """
+    Perform safe division with comprehensive error handling
+    
+    Pre-Conditions:
+    - Input validation
+    
+    Post-Conditions:
+]    - Return of successful division result
+    
+    Args:
+        a: Numerator (dividend)
+        b: Denominator (divisor)
+        
+    Return:
+        Tuple of (result, error_code)
+        - If successful (float_value, DivisionError.SUCCESS)
+        - IF error (None, DivisionError.xxx)
+    """
+    
+    '''Pre-Condition: Validate Input'''
     logger.info(f'Dividing {a} by {b}')
     
     validation_error = validate_input(a, b)
     if validation_error is not None:
         return (None, validation_error)
     
+    '''Perform Division'''
     try:
         result = a / b
     except ZeroDivisionError:
         logger.error(f'Unexpected ZeroDivisionError')
         return (None, DivisionError.DIVIDE_BY_ZERO)
     
+    '''Post-Condition'''
     logger.info(f'Division Successful: {result}')
     return (result, DivisionError.SUCCESS)
     
