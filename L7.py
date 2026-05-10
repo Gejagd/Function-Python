@@ -11,7 +11,7 @@ from typing import Tuple, Optional
 
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctimes)s - %(levelname)s - %(message)s'
+    format='%(asctime)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
 
@@ -20,7 +20,7 @@ class DivisionError(Enum):
     DIVIDE_BY_ZERO = 1
 
 def validate_input(a: int, b: int) -> Optional[DivisionError]:
-    if b == 0.0:
+    if b == 0:
         logger.error("Division By Zero Attempted")
         return DivisionError.DIVIDE_BY_ZERO
     
@@ -44,7 +44,10 @@ def safe_divide(a: int, b: int) -> Tuple[Optional[int], DivisionError]:
     
 if __name__ == '__main__':
     print("\nPlease Input A and B value")
-    a: int = input("Value A: ")
-    b: int = input("Value B: ")
+    x_input = input("Value A: ")
+    y_input = input("Value B: ")
     
-    safe_divide(a, b)
+    x = int(x_input)
+    y = int(y_input)
+    
+    safe_divide(x, y)
