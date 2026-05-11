@@ -1,7 +1,7 @@
 <div align="center">
     <h2>
         <b>
-            Slice and Method
+            Function
         </b>
     </h2>
         My Computer Science Class, Programing in Python<br>Meeting 7: Function
